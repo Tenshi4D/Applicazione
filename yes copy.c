@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdlib.h>
+#include <stdlib.h> // Include for exit function
 
-//DESCRIZIONI DESTINAZIONI
+
 void printDestination(char* destination) {
     if (strstr(destination, "Spain")) {
         printf("\nAfter a thorough analysis, it has been concluded that the optimal destination for you is Spain!\n"
@@ -87,12 +87,10 @@ void printDestination(char* destination) {
     else 
     {
         printf("\nError. Check the spelling.\n");
-        exit(1); // Terminate the program for a spelling error
     }
 }
 
-int main() 
-{
+int main() {
     int budget;
     char weather[20];
     char where[20];
@@ -101,37 +99,58 @@ int main()
     printf("Welcome to QuickTravels! This code will recommend you a European destination based on the answers you input.\nWhat is your budget?\n€");
     scanf("%d", &budget);
 
-    if (budget <= 0) 
-    {
-        printf("Invalid budget. Please enter a positive number.\n");
-        exit(1); //errore se budget negativo
-    }
-
     printf("Do you prefer 'temperate' climate or 'continental' climate?\n");
     scanf("%s", weather);
 
-    for (int i = 0; weather[i]; i++) //rende minuscolo input weather
+    printf("Do you prefer 'beach' or 'mountains'?\n");
+    scanf("%s", where);
+
+    printf("Are you interested in the nightlife? (yes/no)\n");
+    scanf("%s", nightlife);
+
+
+    if (budget <= 1500 && budget >= 300) {
+
+    } 
+
+
+
+
+
+
+
+    int budget;
+    char weather[20];
+    char where[20];
+    char nightlife[20];
+
+    printf("Welcome to QuickTravels! This code will recommend you a European destination based on the answers you input.\nWhat is your budget?\n€");
+    scanf("%d", &budget);
+
+    printf("Do you prefer 'temperate' climate or 'continental' climate?\n");
+    scanf("%s", weather);
+   
+    for (int i = 0; weather[i]; i++) 
     {
         weather[i] = tolower(weather[i]);
     }
 
     printf("Do you prefer 'beach' or 'mountains'?\n");
     scanf("%s", where);
-
-    for (int i = 0; where[i]; i++) //rende minuscolo input where
+   
+    for (int i = 0; where[i]; i++) 
     {
         where[i] = tolower(where[i]);
     }
 
     printf("Are you interested in the nightlife? (yes/no)\n");
     scanf("%s", nightlife);
-
-    for (int i = 0; nightlife[i]; i++) //rende minuscolo input nightlife
+  
+    for (int i = 0; nightlife[i]; i++) 
     {
         nightlife[i] = tolower(nightlife[i]);
     }
 
-    //ALGORITMO SCELTA 
     if (budget <= 1500 && budget >= 300) 
     {
         if (strcmp(weather, "temperate") == 0) 
@@ -146,6 +165,7 @@ int main()
                 {
                     printDestination("Albania");
                 }
+ 
             } 
             else if (strcmp(where, "mountains") == 0) 
             {
@@ -157,12 +177,12 @@ int main()
                 {
                     printDestination("San Marino");
                 }
+
             }
         } 
         else if (strcmp(weather, "continental") == 0) 
         {
-            if (strcmp(where, "beach") == 0) 
-            {
+            if (strcmp(where, "beach") == 0) {
                 if (strcmp(nightlife, "yes") == 0) 
                 {
                     printDestination("France");
@@ -171,6 +191,7 @@ int main()
                 {
                     printDestination("Bulgaria");
                 }
+ 
             } 
             else if (strcmp(where, "mountains") == 0) 
             {
@@ -182,6 +203,7 @@ int main()
                 {
                     printDestination("Slovakia");
                 }
+
             }
         }
     } 
@@ -199,6 +221,7 @@ int main()
                 {
                     printDestination("Cyprus");
                 }
+
             } 
             else if (strcmp(where, "mountains") == 0) 
             {
@@ -210,6 +233,7 @@ int main()
                 {
                     printDestination("Estonia");
                 }
+
             }
         } 
         else if (strcmp(weather, "continental") == 0) 
@@ -224,7 +248,7 @@ int main()
                 {
                     printDestination("Denmark");
                 }
-            } 
+
             else if (strcmp(where, "mountains") == 0) 
             {
                 if (strcmp(nightlife, "yes") == 0) 
@@ -235,14 +259,15 @@ int main()
                 {
                     printDestination("Luxembourg");
                 }
+
             }
         }
     } 
-    else if (budget == 0) 
+    else if(budget == 0)
     {
         printf("Blud wants to travel free lol\n");
-    } 
-    else 
+    }
+    else
     {
         printf("Go earn some money and come back\n");
     }
