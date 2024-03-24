@@ -16,13 +16,13 @@ def main():
 
     # Domande del quiz
     if ask_question("Credi in Dio? (sì/no): \n"):
-        score += 10
+        score += 15
 
     if ask_question("Ti consideri una persona altruista? (sì/no): \n"):
-        score += 15
+        score += 10
 
     if not ask_question("Sei una persona chiusa e riservata? (sì/no): \n"):
-        score += 15
+        score += 10
 
     if not ask_question("Preferisci lavorare da solo piuttosto che in gruppo? (sì/no): \n"):
         score += 10
@@ -34,16 +34,16 @@ def main():
         score += 10
 
     if ask_question("Ti piace discutere di argomenti filosofici o spirituali? (sì/no): \n"):
-        score += 5
+        score += 10
 
     if not ask_question("Sei disposto a seguire le regole e i protocolli stabiliti? (sì/no): \n"):
-        score += 5
+        score += 10
 
     if ask_question("Sei disposto a impegnarti attivamente nella tua comunità? (sì/no): \n"):
-        score += 5
+        score += 10
 
     if ask_question("Ti piace vestirti con tuniche nere tenebrose? (sì/no): \n"):
-        score += 5
+        score += 15
 
     # Limita il punteggio massimo a 100
     score = min(score, 100)
@@ -52,7 +52,7 @@ def main():
     percentuale_massoneria = (score / 100) * 100
 
     # Stampa del risultato
-    print(f"\n\nSei {percentuale_massoneria:.2f} percento massone.")
+    print(f"\n\nSei {percentuale_massoneria:.0f} percento massone.")
 
 if __name__ == "__main__":
     main()
